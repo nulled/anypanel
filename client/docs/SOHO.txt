@@ -1,0 +1,22 @@
+SOHO
+----
+Allow config, monitor and control of a Generic SOHO Linux server, allowing a small business owner the ability to create any number of
+web sites, email accounts, with control over DNS, DHCP, Networking and Security. See below...
+
+SOHO Overview - http://www.brennan.id.au
+    - Apache
+    - Postfix
+    - Dovcot
+    - BIND
+    - SpamAssassin
+    - MySQL
+    - CUPS
+    - IPTABLES
+    - NTP (network time)
+    - DHCP
+    - Samba
+    - OpenLDAP
+
+Priority
+--------
+Apache - create/delete/list vhosts, apache configurations, modules, directives, global apache settings

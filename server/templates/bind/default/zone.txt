@@ -1,0 +1,1 @@
+zone "[domain_name]" { type [domain_type]; file "[domain_file]"; };

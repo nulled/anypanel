@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>uMessagebox Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="/client/umessagebox/css/uMessagebox.css" rel="stylesheet">
+
+        <style>
+            #buttons, #output {
+                text-align: center;
+            }
+
+            #output {
+                font-family: monospace;
+                padding: 10px;
+                width: 200px;
+                margin: 0 auto;
+            }
+
+            #output b {
+                text-transform: uppercase;
+            }
+
+        </style>
+
+        <script src="/client/js/mootools-1.4.5-core.js"></script>
+        <script src="/client/js/mootools-1.4.0.1-more.js"></script>
+        <script src="/client/umessagebox/js/libs/uMessagebox.js"></script>
+        <script>
+            var req = null;
+
+            function ajaxGET(getUrl, showPopup)
+            {
+                if (req) return;
+
+                req = new Request.HTML({
+                    url: getUrl,
+                    method: 'get',
+                    onSuccess: function(responseTree, responseElements, responseHTML, responseJavaScript) {
+                        req = null;
+                        if (! showPopup)
+                        {
+                            msg.setMessage(responseHTML);
+                            msg.show();
+                        }
+                        else
+                        {
+                            $('output').empty();
+                            $('output').adopt(responseTree);
+                        }
+                    },
+                    onFailure: function() {
+                        req = null;
+                        //$('output').set('text', 'The request failed.');
+                        msg.setMessage('Failed Occurred.');
+                        msg.show();
+                    }
+                });
+                msg.setType('info');
+                msg.setTitle('');
+            }
+
+            function str_replace(str, replace) {
+                return str.replace('%', replace);
+            }
+
+            var output = null, msg = null;
+
+            document.addEvent('domready', function() {
+
+                output = $('output'),
+
+                msg = new uMessagebox({
+                    title: '',
+                    message: '',
+                    seconds: 5,
+                    zIndex: 8600,
+                    opacity: 20,
+                    duration: 300,
+                    character: "'",
+                    type: 'info',
+                    countdown: false,
+                    auto: false,
+                    escClose: true,
+                    clickClose: true
+                });
+
+                msg.addEvents({
+                    'show': function(){
+                        output.set('html', 'Show Event for: <b>' + this.getType() + '</b>');
+                        output.highlight('#fff', '#ffff00');
+                    },
+                    'hide': function(){
+                        output.set('html', 'Hide Event for: <b>' + this.getType() + '</b>');
+                        output.highlight('#fff', '#ffff00');
+                    }
+                });
+
+                $$('button').addEvent('click', function() {
+                    type = this.get('name');
+
+                    msg.setType(type);
+                    msg.setTitle(str_replace(title, type));
+                    msg.setMessage(str_replace(message, type));
+                    msg.show();
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <div id="buttons">
+            <button name="alert">Show Alert</button>
+            <button name="info">Show Info</button>
+            <button name="error">Show Error</button>
+            <button name="success">Show Success</button>
+        </div>
+
+        <a href="javascript:void(0)" onclick="ajaxGET('http://localhost/message.html');req.send();">Get Message</a>
+
+        <div id="output">--</div>
+
+    </body>
+</html>

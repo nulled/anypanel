@@ -1,0 +1,44 @@
+Any Panel
+---------
+
+Core Architecture Design
+------------------------
+- php5 classes/interfaces
+- 100% modular
+- uses mootools and phpseclib (pure PHP ssh)
+- 100% Ajax based
+
+Types of modules
+----------------
+core   - Not added to the panel, but used for creating functionality. <classname>.core.class.php
+module - When added, appears under the appropriate menu in the panel. <classname>.class.php
+
+VirtualBox - To run any distro from laptop!
+-------------------------------------------
+http://www.fliquidstudios.com/2009/06/18/creating-a-virtual-development-server-using-virtualbox/
+http://www.eldemonionegro.com/wordpress/archivos/2008/05/18/howto-access-a-virtualbox-guest-machine-throught-ssh-or-how-to-port-forwarding
+VBoxManage list vms
+VBoxManage setextradata fed12 VBoxInternal/Devices/e1000/0/LUN#0/Config/SSH/HostPort 2222
+VBoxManage setextradata fed12 VBoxInternal/Devices/e1000/0/LUN#0/Config/SSH/GuestPort 22
+VBoxManage setextradata fed12 VBoxInternal/Devices/e1000/0/LUN#0/Config/SSH/Protocol TCP
+VBoxManage getextradata fed12 enumerate
+* Remove values by simply leaving out the value
+192.168.56.101
+
+Help
+----
+apt-get unattend - DEBIAN_FRONTEND='noninteractive' apt-get -o Dpkg::Options::='--force-confnew' -y install postfix
+DOCTYPES         - http://www.w3schools.com/tags/tag_DOCTYPE.asp
+SMARTY CONFIGS   - http://www.smarty.net/manual/en/api.variables.php
+AJAX JS Loader   - http://www.javascriptkit.com/javatutors/loadjavascriptcss2.shtml
+ssh2 in pure PHP - http://phpseclib.sourceforge.net
+mootools tuts    - http://www.consideropen.com/blog/2008/08/30-days-of-mootools-12-tutorials-day-1-intro-to-the-library
+SSH Keys         - http://www.securityfocus.com/infocus/1806
+JS Online Packer - http://dean.edwards.name/packer/
+PHP JS Packer    - http://joliclic.free.fr/php/javascript-packer/en/index.php
+php5.3 SSH patch - http://zaemis.blogspot.com/
+
+Error Codes
+-----------
+100 - ssh2_connect failed: Ensure OpenSSH or the ssh package is installed and accessible on your server.
+101 - ssh2_auth_password failed: Ensure root user has access vai an ssh login.

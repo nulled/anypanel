@@ -1,0 +1,8 @@
+$TTL    [domain_ttl]     ; 604800
+@       IN      SOA     [domain_name]. [domain_email]. (
+                        [domain_serial]         ; Serial 20
+                        [domain_refresh]         ; Refresh 604800
+                        [domain_retry]         ; Retry 86400
+                        [domain_expire]         ; Expire 2419200
+                        [domain_negative_ttl] )       ; Negative Cache TTL 604800
+;

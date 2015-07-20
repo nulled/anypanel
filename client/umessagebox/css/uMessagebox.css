@@ -1,0 +1,83 @@
+/* Basic style */
+
+.umessagebox {
+    font: 12px "Verdana, sans-serif";
+}
+
+.umessagebox.umessagebox-overlay {
+    background: #000;
+}
+
+.umessagebox.umessagebox-container {
+    position: fixed;
+    background: white;
+    border: 5px solid #888;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 7px 2px rgba(150,150,150, .7);
+}
+
+.umessagebox.umessagebox-container .umessagebox-content {
+    padding: 10px 20px 10px 10px;
+    overflow: hidden;
+}
+
+.umessagebox-message {
+    float: left;
+}
+
+.umessagebox.umessagebox-container .umessagebox-countdown {
+    position: absolute;
+    width: 25px;
+    margin-top: 5px;
+    right: 5px;
+    font-size: 10px;
+    text-align: right;
+    color: #aaa;
+}
+
+.umessagebox.umessagebox-container.success .umessagebox-content .umessagebox-message * {
+    color:#6d9b00;
+}
+
+.umessagebox.umessagebox-container.alert .umessagebox-content .umessagebox-message * {
+    color:#212025;
+}
+
+.umessagebox.umessagebox-container.error .umessagebox-content .umessagebox-message * {
+    color:#c20016;
+}
+
+.umessagebox.umessagebox-container.info .umessagebox-content .umessagebox-message * {
+    color:#444444;
+}
+
+.umessagebox.umessagebox-container .umessagebox-content .umessagebox-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: top;
+    background: #CCC;
+    display: inline-block;
+    margin-right: 5px;
+    background: url("/client/umessagebox/css/icons.png") no-repeat transparent;
+}
+
+.umessagebox.umessagebox-container .umessagebox-content .umessagebox-icon {
+    float: left;
+}
+
+.umessagebox.umessagebox-container.info .umessagebox-content .umessagebox-icon {
+    background-position: -16px top;
+}
+
+.umessagebox.umessagebox-container.error .umessagebox-content .umessagebox-icon {
+    background-position: -32px top;
+}
+
+.umessagebox.umessagebox-container.success .umessagebox-content .umessagebox-icon {
+    background-position: -48px top;
+}
+
+.umessagebox.umessagebox-container .umessagebox-content .umessagebox-title {
+    font-weight: bold;
+}

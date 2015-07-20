@@ -1,0 +1,20 @@
+#accordion h2 {
+    font-size: 14px;
+    margin: 0;
+    padding: 1px;
+}
+.accordion {
+    margin: 15px 20%;
+    text-align: left;
+}
+.pre_text {
+    max-width: 800px;
+    max-height: 350px;
+    background-color: #ccc;
+    border: 1px dotted black;
+    padding: 5px;
+    font-family: monospace;
+    overflow: auto;
+    margin:  5px auto;
+    text-align: left;
+}

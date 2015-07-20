@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/errors.css" />
+<script type="text/javascript" src="js/mootools-1.2.4-core.js"></script>
+<script type="text/javascript" src="js/mootools-1.2.4.2-more.js"></script>
+<script type="text/javascript" src="js/errors.js"></script>
+<title>DigiPanel Error Codes</title>
+</head>
+<body>
+    <h2>DigiPanel Error code numbers and possible solutions to correct them.</h2>
+
+    <h3 class="toggler">Error 100</h3>
+    <div class="element">
+        ssh2_connect failed: Ensure OpenSSH or the SSH package is installed and accessible on your Server.
+        <br /><br />
+        First, ensure the IP Address you set in DigiPanel is the IP Address of your Server!
+        <br /><br />
+        Second, ensure that SSH is installed and running on your server. SSH allows remote access to your Server.
+        <br /><br />
+        Third, ensure that SSH (Secure SHell) is accessible on port 22 of your Server and is <i>not</i> blocked by any
+        firewalls you may have set up. On Ubuntu Servers run the following commands to allow SSH connections.
+        <pre>
+            sudo ufw enable
+            sudo ufw allow 22
+        </pre>
+        Install SSH on your Server. Depending on which Linux Server you are running will determine how to install SSH.
+        <br />
+        <p>
+            Ubuntu Server: <b>sudo apt-get install <i>ssh</i></b>
+            <br />
+            CentOS Server: <b>yum install <i>ssh</i></b>
+        </p>
+    </div>
+
+    <h3 class="toggler">Error 101</h3>
+    <div class="element">
+        ssh2_auth_password failed: Ensure root user has access vai an ssh login.
+        <br /><br />
+        First, insure you have your correct <i>root</i> user password set for DigiPanel and your server!
+        <br />
+        If, the above is confirmed correct and DigiPanel still can not access your Server, see below.
+        <br /><br />
+        <b>/etc/ssh/sshd_config</b> - edit this file to ensure the following options are set.
+        <pre>
+            PermitRootLogin Yes
+        </pre>
+        <b>Note:</b> For Ubuntu servers, the root user does not have a password set, after a default install.
+        You need to become the root user, then set a password for it. The first command <i>sudo -s</i> will
+        make you root user. The second command <i>passwd your_password_here</i> will prompt and confirm a new
+        password for root user. After the password has been set, you can issue the command <i>exit</i> to return
+        to your normal user.
+        <pre>
+            sudo -s
+            passwd your_password_here
+            exit
+        </pre>
+    </div>
+
+    <h3 class="toggler">Error 200</h3>
+    <div class="element">
+        Unable to find the file /etc/issue on your Server to determine distribution type and version.
+        <br /><br />
+        Your distribution install is corrupt or tampered with and a reinstall is recommended. If you are running a
+        Linux distribution that DigiPanel does not support you can ignore this error. DigiPanel supports the top major
+        Linux Distributions such as; Ubuntu Server, CentOS/RHEL and Debian Server.
+    </div>
+
+    <h3 class="toggler">Error 201</h3>
+    <div class="element">
+        Distribution is not supported by DigiPanel.
+    </div>
+
+</body>
+</html>

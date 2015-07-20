@@ -1,0 +1,18 @@
+.site_list {
+	margin: 0 auto;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 7px;
+    width: 640px;
+}
+
+.site_enabled {
+    font-weight: bold;
+    color: red;
+    padding: 3px;
+}
+
+.site_avail {
+    color: gray;
+    padding: 3px;
+}

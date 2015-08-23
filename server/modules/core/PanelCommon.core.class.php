@@ -483,14 +483,14 @@ class PanelCommon extends MySQLi_Access
     final protected function Request($request, $sanitize = '', $method = '')
     {
         if (strtoupper($method) === 'GET')
-            $req = ($_GET[$request])  ? $_GET[$request]  : '';
+            $req = (@$_GET[$request])  ? $_GET[$request]  : '';
         else if (strtoupper($method) === 'POST')
-            $req = ($_POST[$request]) ? $_POST[$request] : '';
+            $req = (@$_POST[$request]) ? $_POST[$request] : '';
         else
         {
-            if ($_GET[$request])
+            if (@$_GET[$request])
                 $req = $_GET[$request];
-            else if ($_POST[$request])
+            else if (@$_POST[$request])
                 $req = $_POST[$request];
             else
                 $req = '';

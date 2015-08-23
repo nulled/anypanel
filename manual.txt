@@ -1,0 +1,4 @@
+Install PMA
+Create new user: anypanel
+Password a complex password.
+Access only to 'panel' database SELECT,INSERT,UPDATE,DELETE

@@ -15,6 +15,8 @@
  * cookie
  */
 $cfg['blowfish_secret'] = 'lkasdjfSKJHOlkdfjsakjf98324758934HSf'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['PmaAbsoluteUri'] = 'http://localhost:8000/client/pma/';
+
 
 /*
  * Servers configuration

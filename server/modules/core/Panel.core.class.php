@@ -8,9 +8,7 @@ final class Panel extends PanelCommon
 
     public function __construct()
     {
-        $this->ckey = (string) $_SERVER['CKEY'];
-        $this->ckey = 'zS7hgPk5fBhNZG64F87h6hfD';
-        unset($_SERVER['CKEY'], $GLOBALS['CKEY']);
+        $this->ckey = PANEL_CKEY;
 
         if (! is_string($this->ckey) OR strlen($this->ckey) != 24)
             exit('ERROR: panel key not 24 characters in length');
@@ -29,6 +27,7 @@ final class Panel extends PanelCommon
 
     final private function Main()
     {
+
         $session_state = $this->SessionStart();
 
         if ($session_state === true)
@@ -125,10 +124,10 @@ final class Panel extends PanelCommon
         $submitted = $this->Request('submitted', 'lcase');
 
         $this->SessionCookieParams();
-        session_start();
+        @session_start();
         $_SESSION = array();
-        session_unset();
-        session_destroy();
+        @session_unset();
+        @session_destroy();
 
         $this->SessionCookieParams();
         session_start();
@@ -431,6 +430,8 @@ final class Panel extends PanelCommon
         session_start();
 
         //$this->ErrorLog(print_r($_SESSION, 1));
+
+        $_SESSION['auth'] = 1;
 
         if ($this->core == 'logout')
         {

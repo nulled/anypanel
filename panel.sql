@@ -12,6 +12,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `panel`
 --
+DROP DATABASE IF EXISTS panel;
+CREATE DATABASE panel;
 USE panel;
 -- --------------------------------------------------------
 

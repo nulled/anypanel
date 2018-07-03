@@ -52,6 +52,6 @@ function callback_error($errno, $errstr, $errfile, $errline, $errcon)
 //set_error_handler('callback_error', E_ALL & ~E_NOTICE & ~E_WARNING);
 set_error_handler('callback_error', E_ALL & ~E_NOTICE);
 
-$panel = new Panel();
+$anypanel = new AnyPanel();
 
 ?>
